@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-tomcat-deployment
+  labels:
+    app: java-tomcat
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-tomcat
+  template:
+    metadata:
+      labels:
+        app: java-tomcat
+    spec:
+      containers:
+      - name: tomcat-container
+        image: IMAGE_PLACEHOLDER
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"

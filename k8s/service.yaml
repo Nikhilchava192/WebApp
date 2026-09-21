@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-tomcat-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: java-tomcat
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
